@@ -6,7 +6,7 @@ $config = require("Configuration.php");
 if (isset($_SESSION["User_ID"])) {
     $user_id = $_SESSION["User_ID"];
 
-    $db = new Database($config["Database"], "root", "Ayman_Database");
+    $db = new Database($config["Database"], "", "");
     $user = $db -> query("SELECT * FROM Users WHERE ID = ?", [$user_id]) -> fetch();
 } else {
     header("Location: Authentication/Register.php");
